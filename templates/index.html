@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <title>Speech Emotion Recogonition</title>
+</head>
+
+<body style="background-color: burlywood;">
+
+
+    <h1 id="Wave vertical-center" style="text-align: center; font-size: 80px; font-weight:400;">Wave</h1>
+    <div class="container" style="display:inline-flex; width: 100%;">
+        <div style="width: 50%" class="vertical-center box-1">
+            <form style="margin: auto; width: 50%; padding: 10px; display: flex;" action="/" method="post"
+                enctype="multipart/form-data">
+                <input style="display: inline-block; margin: auto; width: 100%; padding: 7px; font-size: 20px"
+                    type="file" name="file" />
+                <button
+                    style="display: inline-block; margin: auto; width: 100%; padding: 7px; font-size: 20px; color: brown; background-color: goldenrod; border-radius: 10px; border: 10px;"
+                    id="clickMe" type="submit" value="Upload" name="forwardButton">Predict</button>
+            </form>
+        </div>
+        <hr>
+
+        <div style="width: 50%; align-content: center;" class="vertical-center box-2">
+            <form action="/loading" method="post" style="margin: auto; width: 50%; padding: 10px;">
+                <button
+                    style="display: inline-block; margin: auto; width: 100%; padding: 7px; font-size: 20px; color: brown; background-color: goldenrod; border-radius: 10px; border: 10px;"
+                    onclick="change()" type="submit" onmouseover="hover()" onmouseleave="hoveroff()"
+                    className="forwardButton" value="Record" id="toggle">Record</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div>
+        <h1 style="text-align: center; font-size: 50px; font-weight:400;">Predicted Emotion</h1>
+        <h1 style="text-align: center; font-size: 30px; font-weight:400; text-transform: uppercase;">{{final_pred}}
+        </h1>
+    </div>
+    <hr>
+    <div>
+        <h1 style="text-align: center; font-size: 30px; font-weight:400;">Alexithymia</h1>
+        <h1 style="text-align: center; font-size: 20px; font-weight:400; width: 100%;">Alexithymia is a personality
+            trait characterized by the subclinical inability to identify and describe
+            emotions experienced by one's self. The core characteristic of alexithymia is marked dysfunction in
+            emotional awareness, social attachment, and interpersonal relation. Furthermore, people with high levels
+            of alexithymia can have difficulty distinguishing and appreciating the emotions of others, which is thought
+            to lead to unempathic and ineffective emotional responses.</h1>
+    </div>
+
+</body>
+<script type="text/javascript">
+
+    function change() {
+        var change = document.getElementById("toggle");
+        if (change.innerHTML == "Record") {
+            change.innerHTML = "Recording...";
+        }
+        else {
+            change.innerHTML = "Record";
+        }
+    }
+
+    function hover() {
+        var x = document.getElementsByClassName("forwardButton");
+        x.style.backgroundColor = 'green'
+    }
+
+    function hoveroff() {
+        var x = document.getElementsByClassName("forwardButton");
+        x.style.backgroundColor = 'goldenrod'
+    }
+</script>
+
+
+</html>
